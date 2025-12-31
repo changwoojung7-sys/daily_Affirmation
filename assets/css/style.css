@@ -1,0 +1,154 @@
+/* 변수 설정: 색상 및 테마 관리 */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #6366f1;
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+}
+
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* 전체를 감싸는 부모 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 필요시 세로 중앙 */
+  gap: 20px; /* 카드와 '메인으로' 버튼 사이의 간격 */
+  min-height: 100vh;
+}
+
+/* '메인으로' 링크 스타일 */
+.back-to-main {
+  margin-top: 10px; /* 카드 바로 아래 적절한 간격 */
+  color: #6366f1; /* 기존 색상 유지 */
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.icon {
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 10px var(--accent-color));
+}
+
+/* 기존 소스에 아래 내용을 덮어쓰거나 추가하세요 */
+.back-link {
+    /* position: absolute; 제거 */
+    /* bottom: 30px; 제거 */
+    margin-top: 10px; /* 카드와의 간격 */
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block; /* 간격 적용을 위해 추가 */
+}
+
+.back-link:hover {
+    color: #6366f1; /* 호버 시 강조 */
+    border-bottom: 1px solid #6366f1;
+}
+
+/* style.css 수정 */
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    padding: 50px 35px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.1);
+    transition: transform 0.3s ease;
+
+    /* --- 추가 및 수정된 부분 --- */
+    width: 90%;            /* 모바일 대응: 화면 너비의 90% */
+    max-width: 600px;      /* PC 대응: 최대 600px까지만 늘어남 */
+    margin: 0 auto;        /* 중앙 정렬 */
+}
+
+h1#quote {
+    font-size: 1.4rem;     /* 가독성을 위해 살짝 조절 */
+    font-weight: 500;
+    line-height: 1.8;
+    color: #f8fafc;
+    margin-bottom: 28px;
+    
+    /* --- 줄바꿈 설정 --- */
+    word-break: keep-all;  /* 한글 단어가 중간에 끊기지 않게 함 */
+    overflow-wrap: break-word; /* 너무 긴 단어는 강제 줄바꿈 */
+    display: block;        /* flex 대신 block으로 설정하여 줄바꿈 최적화 */
+}
+
+.quote-text {
+  height: auto; /* 고정 높이(px)가 있다면 auto로 변경 */
+  min-height: 80px; /* 최소 높이만 지정 */
+  word-break: keep-all; /* 한글 단어가 끊기지 않게 방지 */
+  overflow: visible; /* 넘쳐도 보이게 설정 */
+  line-height: 1.6; /* 줄 간격을 주어 가독성 확보 */
+}
+
+p#author {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover:not(:disabled) {
+    background: #4f46e5;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 페이드 인 애니메이션 클래스 */
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

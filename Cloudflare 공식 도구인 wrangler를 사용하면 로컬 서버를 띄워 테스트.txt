@@ -1,0 +1,22 @@
+A. 도구 설치 (터미널/CMD에서 실행)
+Node.js가 설치되어 있다면 아래 명령어로 설치합니다.
+
+Bash
+
+npm install -g wrangler
+
+B. 로컬 서버 실행
+프로젝트 루트 폴더(index.html이 있는 곳)에서 아래 명령어를 입력합니다.
+
+Bash
+
+npx wrangler pages dev .
+
+이 명령어를 치면 localhost:8888 같은 주소가 뜨며, 여기서 접속하면 functions 내부의 API까지 실제로 작동합니다.
+
+C. 로컬에서 환경 변수(API 키) 설정
+로컬 테스트 시 API 키를 인식시키려면, 루트 폴더에 .dev.vars라는 파일을 만들고 내용을 적어주면 됩니다.
+
+Plaintext
+
+GEMINI_API_KEY=여러분의_실제_API_키
